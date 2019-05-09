@@ -54,7 +54,16 @@ public class UserService {
 	//修改会员信息
 	public void updateUser(User user) {
 		userDao.updateUser(user);
-	}	
+	}
+
+
+	//根据手机号去查询会员的方法
+	public List<User> searchUser(String phone) {
+		 return userDao.searchUser(phone);
+	}
+
+
+	
 	
 
 }
