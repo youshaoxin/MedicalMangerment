@@ -45,6 +45,7 @@
 			<result name="addSuccess" type="redirectAction">user_findAllUserList</result>
 			<result name="deleteSuccess" type="redirectAction">user_findAllUserList</result>
 			<result name="updateSuccess" type="redirectAction">user_findAllUserList</result>
+			<result name="searchSuccess"  >/tgls/base/base_list.jsp</result>
 			<result name="editSuccess">/tgls/base/base_edit.jsp</result>
 		</action>
 			

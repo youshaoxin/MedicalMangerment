@@ -7,8 +7,8 @@ import java.util.Set;
 public class User {
 	private Integer uid;  			//会员Id
 	private String username; 		//会员名称
-	private Integer cardNum;		//会员身份证
-	private Integer phone;			//会员电话
+	private String cardNum;		//会员身份证
+	private String phone;			//会员电话
 	private String adress;			//会员所在地址
 	private String sex;				//会员性别	
 	//通过ORM的方式表示：一个会员对应多个订单
@@ -26,16 +26,22 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public Integer getCardNum() {
+	
+	
+	
+	public String getCardNum() {
 		return cardNum;
 	}
-	public void setCardNum(Integer cardNum) {
+	public void setCardNum(String cardNum) {
 		this.cardNum = cardNum;
 	}
-	public Integer getPhone() {
+
+	
+	
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(Integer phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public String getAdress() {
@@ -61,6 +67,7 @@ public class User {
 		return "User [uid=" + uid + ", username=" + username + ", cardNum=" + cardNum + ", phone=" + phone + ", adress="
 				+ adress + ", sex=" + sex + "]";
 	}
+	
 	
 	
 	

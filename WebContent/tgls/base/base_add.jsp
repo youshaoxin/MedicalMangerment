@@ -47,26 +47,26 @@
 			<form id="addForm" class="layui-form" action="${pageContext.request.contextPath}/user_addUser" method="post">
 				<div class="layui-form-item">
 					<label class="layui-form-label">会员名称</label>
-					<div class="layui-input-block">
-						<input type="text" name="username"  lay-verify="required|ZHCheck" placeholder="(只允许输入中文)" autocomplete="off" class="layui-input">
+					<div class="layui-input-inline shortInput">
+						<input type="text" name="username" required lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">性别</label>     <!-- required -->
-					<div class="layui-input-block">
-						<input type="text" name="sex"  lay-verify="required|ZHCheck" placeholder="(只允许输入中文)" autocomplete="off" class="layui-input">
+					<div class="layui-input-inline shortInput">
+						<input type="text" name="sex" required lay-verify="required" placeholder="请输入性别 " autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">身份证号</label>
 					<div class="layui-input-inline shortInput">
-						<input type="text" name="cardNum"  lay-verify="required|ZHCheck" placeholder="例:张三(只允许输入中文)" autocomplete="off" class="layui-input">
+						<input type="text" name="cardNum" required lay-verify="required|identity" placeholder="请输入身份证 " autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">电话号码</label>
 					<div class="layui-input-inline shortInput">
-						<input type="text" name="phone"  lay-verify="required|ZHCheck" placeholder="例:张三(只允许输入中文)" autocomplete="off" class="layui-input">
+						<input type="text" name="phone" required lay-verify="required|phone" placeholder="请输入电话号码 " autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				
@@ -118,7 +118,7 @@
 				
 				<div class="layui-form-item">
 					<div class="layui-input-block">
-						<button class="layui-btn" lay-submit lay-filter="submitBut">立即提交</button>
+						<button class="layui-btn" lay-submit  type="submit">立即提交</button>
 						
 						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 					</div>
@@ -137,13 +137,13 @@
 						layer.msg(JSON.stringify(data.field));
 						return false;
 					});
-					form.verify({
+					/* form.verify({
 						//数组的两个值分别代表：[正则匹配、匹配不符时的提示文字]
 					  	ZHCheck: [
 						    /^[\u0391-\uFFE5]+$/
 						    ,'只允许输入中文'
 					  	] 
-					});
+					}); */
 				});
 				//默认城市为：四川 - 成都
 		        var defaults = {

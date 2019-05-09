@@ -34,12 +34,12 @@
 	<body>
 		<div class="cBody">
 			<div class="console">
-				<form class="layui-form" action="">
+				<form class="layui-form" action="${pageContext.request.contextPath}/user_searchUser" method="post">
 					<div class="layui-form-item">
 						<div class="layui-input-inline">
-							<input type="text" name="name" required lay-verify="required" placeholder="输入分管名称" autocomplete="off" class="layui-input">
+							<input type="text" name="phone" required lay-verify="required" placeholder="请输入手机号查询" autocomplete="off" class="layui-input">
 						</div>
-						<div class="layui-input-inline">
+						<%-- <div class="layui-input-inline">
 				        	<input type="text" class="layui-input" id="time" placeholder=" - ">
 						</div>
 						<div class="layui-input-inline">
@@ -51,8 +51,8 @@
 		                    <select name="cityid" id="cityid" lay-filter="cityid">
 		                        <option value="">二级分类</option>
 		                    </select>
-		                </div>
-						<button class="layui-btn" lay-submit lay-filter="submitBut">检索</button>
+		                </div> --%>
+						<button class="layui-btn" lay-submit lay-filter="submitBut " type="submit">查询会员</button>
 					</div>
 				</form>
 
