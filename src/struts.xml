@@ -25,16 +25,21 @@
 			<result name="deleteGoods" type="redirect">goods_findAllGoods</result>
 			<!-- 模糊查找商品 -->
 			<result name="findSomeGood">/tgls/goodsManage/goods_find_list.jsp</result>
+			<!-- 根据类别查找商品 -->
+			<result name="findTypeGoods">/tgls/goodsManage/goods_find_list.jsp</result>
+			
 		</action>
 		
 		
 	
-	<!-- 商品Action -->
+	<!-- 类别Action -->
 		<action name="type_*" class="typeAction" method="{1}">
 			<!-- 查找所有类别 -->
 			<result name="findAllType">/tgls/goodsManage/goodsType_list.jsp</result>
 			<!-- 级联删除类别 -->
 			<result name="deleteGoods">/test.jsp</result>
+			
+			<result name="findIndexTypes">/tgls/goodsManage/goods_list.jsp</result>
 		</action>
 		
 		

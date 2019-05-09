@@ -35,6 +35,7 @@
 		<mapping resource="com/itcast/entity/Good.hbm.xml"/>
 		<mapping resource="com/itcast/entity/Type.hbm.xml"/>
 		<mapping resource="com/itcast/entity/Stock.hbm.xml"/>
+		<mapping resource="com/itcast/entity/Supplier.hbm.xml"/>
 		
 		
 	</session-factory>

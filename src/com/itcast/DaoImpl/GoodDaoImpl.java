@@ -41,13 +41,6 @@ public class GoodDaoImpl implements GoodDao {
 		
 			System.out.println(good.toString());
 			
-			//查询类别名字
-//			List<Type> findType = (List<Type>) hibernateTemplate.find("from Type where tid = ?", good.getType().getTid());
-//			for (Type type : findType) {
-//				String tname = type.getTname();
-//				System.out.println(tname+"............");
-//			}
-			
 		}
 		
 		

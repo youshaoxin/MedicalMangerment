@@ -15,7 +15,10 @@ public class Type {
 	//配置一对多关系
 	private Set<Good> setgoods = new HashSet<Good>();
 	
-	
+	/**
+	 * 商品set
+	 * @return
+	 */
 	public Set<Good> getSetgoods() {
 		return setgoods;
 	}

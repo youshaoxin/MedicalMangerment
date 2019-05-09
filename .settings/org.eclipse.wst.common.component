@@ -3,6 +3,6 @@
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <property name="java-output-path" value="/MedicalMangerment/build/classes"/>
-        <property name="context-root" value="MedicalMangerment3"/>
+        <property name="context-root" value="MedicalMangerment"/>
     </wb-module>
 </project-modules>

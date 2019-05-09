@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
+
 <!DOCTYPE html>
 <html>
 
@@ -49,22 +50,66 @@
 							<input type="text" name="gname" required lay-verify="required" placeholder="输入商品名称" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-input-inline">
-		                    <select name="provid" id="provid" lay-filter="provid">
-		                        <option value="">一级分类</option>
+		                    <select name="provid" id="provid" >
+		                        <option value="">全部类别</option>
+		                        <option value="">处方药</option>
+		                        <option value="">非处方药</option>
 		                    </select>
 		                </div>
 		                <div class="layui-input-inline">
-		                    <select name="cityid" id="cityid" lay-filter="cityid">
-		                        <option value="">二级分类</option>
+		                    <select name="cityid" id="cityid" lay-filter="cityid" >
+		                        <option value="">全部类别</option>
+						
+		                      	<s:iterator value="findAllType" var="type">
+		                        	<option value="" ><s:property value="#type.tname"></s:property></option>
+		                        </s:iterator>
+		                       
 		                    </select>
 		                </div>
 						<button class="layui-btn"  type="submit">检索</button>
 						<!-- lay-submit lay-filter="submitBut" -->
-						<a class="layui-btn">导入商品</a>
+						<a class="layui-btn" onclick="changetext()">导入商品</a>
 					</div>
 				</form>
 
 				<script>
+				
+				$(function(){
+					$("#provid").change(function(){
+						alert("!2121");
+					})
+					
+					
+				})
+				
+					//页面加载就会立刻执行的函数
+					/* window.onload = function(){
+						/**
+						 * 用jQuery的方式发起AJAX请求
+						 */
+							/* $.ajax({
+								url:encodeURI(encodeURI("${pageContext.request.contextPath}/type_findIndexTypes")),
+								type:"post",
+								cache:false,
+								success:function(msg){
+									//$("#msg").append(msg);
+									if(msg.isSuccess){
+										alert("出手的速度");
+										$("#option1").html("<font color='green'>用户名可用</font>"); 
+									}else{
+										$("#option1").html("<font color='red'>用户名重复！</font>"); 
+									}
+									
+								}
+							});	
+											
+				    }  */
+				    
+				    
+				
+				
+				
+				
 					layui.use('form', function() {
 						var form = layui.form;
 				
@@ -105,7 +150,7 @@
 						<td><s:property value="#good.type.tname"></s:property></td>
 						<td><s:property value="#good.stockid"></s:property></td>
 						<td></td>
-						<td></td>
+						<td><s:property value="#good.sid.sname"></s:property></td>
 						<td><s:property value="#good.date"></s:property></td>
 						<td>
 							<form id="form01" action="${pageContext.request.contextPath}/goods_updateShowGoods" method="post">
@@ -128,11 +173,7 @@
 									    setTimeout(function(){ alert("Hello"); }, 0);
 									}
 									
-									//页面加载就会立刻执行的函数
-									window.onload = function(){
-										//alert("<s:property value="#good.gid"></s:property>");
-										
-								    }
+									
 						
 								</script>
 								

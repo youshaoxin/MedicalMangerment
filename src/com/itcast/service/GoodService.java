@@ -6,12 +6,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.itcast.Dao.GoodDao;
 import com.itcast.entity.Good;
-import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Woodstox;
-import com.sun.xml.internal.ws.assembler.MetroConfigNameImpl;
 
 //事务的注解记得一定不要忘了加！
 @Transactional
 public class GoodService {
+	
+	
 	private GoodDao goodDao;
 
 	public void setGoodDao(GoodDao goodDao) {
