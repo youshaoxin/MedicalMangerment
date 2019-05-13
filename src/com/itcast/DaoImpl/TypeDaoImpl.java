@@ -44,5 +44,26 @@ public class TypeDaoImpl implements TypeDao{
 		
 		
 	}
+	/**
+	 * 根据id查找某个类别
+	 * @return
+	 */
+	@Override
+	public Type TypeAboutId(Integer id) {
+		System.out.println("根据id查找某个类别impl....");
+		Type type = hibernateTemplate.get(Type.class, id);
+
+		return type;
+	}
+
+	/**
+	 * 类别保存
+	 * @return
+	 */
+	@Override
+	public void saveType(Type type) {
+		
+		hibernateTemplate.update(type);
+	}
 
 }

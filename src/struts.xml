@@ -16,7 +16,7 @@
 			<!-- 查找显示所有药品 -->
 			<result name="findAllGoods">/tgls/goodsManage/goods_list.jsp</result>
 			<!-- 药品添加 -->
-			<result name="goodsAdd">/tgls/goodsManage/goods_add.jsp</result>
+			<result name="goodsAdd" type="redirect">goods_findAllGoods</result>
 			<!-- 显示修改药品的信息 -->
 			<result name="updateShowGoods">/tgls/goodsManage/goods_update.jsp</result>
 			<!-- 修改药品信息，注意：修改完跳转到显示的action,再显示数据-->
@@ -27,6 +27,9 @@
 			<result name="findSomeGood">/tgls/goodsManage/goods_find_list.jsp</result>
 			<!-- 根据类别查找商品 -->
 			<result name="findTypeGoods">/tgls/goodsManage/goods_find_list.jsp</result>
+			<!-- 跳转到手动添加商品页面 -->
+			<result name="addGoodsPage">/tgls/goodsManage/goods_add.jsp</result>
+			
 			
 		</action>
 		

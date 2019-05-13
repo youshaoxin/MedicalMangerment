@@ -29,6 +29,9 @@ public class Supplier {
 	public String toString() {
 		return "Supplier [sid=" + sid + ", sname=" + sname + ", sadress=" + sadress + "]";
 	}
+	
+	
+	
 	public Integer getSid() {
 		return sid;
 	}

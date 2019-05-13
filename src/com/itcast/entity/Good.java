@@ -4,6 +4,7 @@ package com.itcast.entity;
 public class Good {
 	private Integer gid;//药品编号
 	private String gname;//药品名称
+	
 	private Supplier sid;//药品供应商id
 	private Integer stockid;//库存表id
 	private Double price;//售价
@@ -11,15 +12,20 @@ public class Good {
 	private String date;//生产日期
 	private Integer qualitaDate;//保质期
 	private String purchaseNum;//进货编号
+	
+	
 	private Type type;//类别id
+	private String overTime;//距离过期时间
 	
 
 	
+
+
 	@Override
 	public String toString() {
 		return "Good [gid=" + gid + ", gname=" + gname + ", sid=" + sid + ", stockid=" + stockid + ", price=" + price
 				+ ", purchasePrice=" + purchasePrice + ", date=" + date + ", qualitaDate=" + qualitaDate
-				+ ", purchaseNum=" + purchaseNum + ", type=" + type + "]";
+				+ ", purchaseNum=" + purchaseNum + ", type=" + type + ", overTime=" + overTime + "]";
 	}
 	
 	/**
@@ -95,7 +101,13 @@ public class Good {
 	public void setPurchaseNum(String purchaseNum) {
 		this.purchaseNum = purchaseNum;
 	}
-
+	public String getOverTime() {
+		return overTime;
+	}
+	public void setOverTime(String overTime) {
+		this.overTime = overTime;
+	}
+	
 	
 	
 	

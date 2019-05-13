@@ -64,7 +64,7 @@
 		                <dl>
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/type_findAllType',this, 'page10024')">药品分类列表</a></dt>
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/goods_findAllGoods',this, 'page10025')">基本商品库</a></dt>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/goodsManage/goods_add.jsp',this, 'page10026')">手动添加药品</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/goods_addGoodsPage',this, 'page10026')">手动添加药品</a></dt>
 		                </dl>
 		            </li>
 		        	<li>

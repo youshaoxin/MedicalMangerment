@@ -19,7 +19,7 @@
       		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
       		<property name="jdbcUrl" value="jdbc:mysql:///medical5_6"></property>
       		<property name="user" value="root"></property>
-      		<property name="password" value="haosql"></property>
+      		<property name="password" value="root"></property>
      </bean>
      
      <!-- SessionFactory -->

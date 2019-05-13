@@ -15,6 +15,10 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class TypeAction extends ActionSupport {
+	
+	/**
+	 * 注入typeService
+	 */
 	private TypeService typeService ;
 	
 	public TypeService getTypeService() {
@@ -25,6 +29,8 @@ public class TypeAction extends ActionSupport {
 		this.typeService = typeService;
 	}
 
+	
+	
 	private List<Type> typeList = new ArrayList<Type>();
 	
 	public List<Type> getTypeList() {

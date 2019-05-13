@@ -33,6 +33,8 @@
 		<property name="goodService" ref="goodService"></property>
 		
 		<property name="typeService" ref="typeService"></property>
+		
+		<property name="supplierService" ref="supplierService"></property>
 	</bean>
 	<bean id="goodService" class="com.itcast.service.GoodService">
 		<!-- 注入Dao -->
@@ -43,15 +45,16 @@
 		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
 	</bean>
 	
+	
 	<!-- 供应商Action -->
 	<bean id="supplierAction" class="com.itcast.Action.SupplierAction" scope="prototype">
-		<property name="applierService" ref="applierService"></property>
+		<property name="supplierService" ref="supplierService"></property>
 	</bean>
-	<bean id="applierService" class="com.itcast.service.ApplierService">
+	<bean id="supplierService" class="com.itcast.service.SupplierService">
 		<!-- 注入Dao -->
-		<property name="applierDao" ref="applierDaoImpl"></property>
+		<property name="supplierDao" ref="supplierDaoImpl"></property>
 	</bean>
-	<bean id="applierDaoImpl" class="com.itcast.DaoImpl.ApplierDaoImpl">
+	<bean id="supplierDaoImpl" class="com.itcast.DaoImpl.SupplierDaoImpl">
 		<!-- 在userDaoImpl中注入hibernateTemplate -->
 		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
 	</bean>

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -44,14 +47,14 @@
 
 	<body>
 		<div class="cBody">
-			<form id="addForm" class="layui-form" method="post" action="${pageContext.request.contextPath}/goods_goodsAdd">
+			<form id="addForm" class="layui-form" method="post" action="${pageContext.request.contextPath}/goods_goodsAdd" onsubmit="return checkform()">
 				<div class="layui-form-item">
 					<label class="layui-form-label">药品名称</label>
 					<div class="layui-input-block">
-						<input type="text" name="gname" required lay-verify="required" autocomplete="off" class="layui-input">
+						<input type="text" name="gname" required lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入药品名">
 					</div>
 				</div>
-				<!-- <div class="layui-form-item">
+				 <!-- <div class="layui-form-item">
 					<label class="layui-form-label">商品图片</label>
 					<div class="layui-upload-drag" id="goodsPic">
 					  <i class="layui-icon"></i>
@@ -61,53 +64,51 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label">药品库存</label>
 					<div class="layui-input-block">
-						<input type="text" name="stock" lay-verify="required" autocomplete="off" class="layui-input">
+						<input type="number" name="stock" lay-verify="required|number" autocomplete="off" class="layui-input" placeholder="请输入数字">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">价格</label>
 					<div class="layui-input-block">
-						<input type="text" name="price" lay-verify="required|number" autocomplete="off" class="layui-input">
+						<input type="number" name="price" lay-verify="required|number" autocomplete="off" class="layui-input" placeholder="请输入数字">
 					</div>
 				</div>
-				<div class="layui-form-item">
-					<label class="layui-form-label">类别（数字）</label>
+				 <div class="layui-form-item">
+					<label class="layui-form-label">生产日期</label>
 					<div class="layui-input-block">
-						<input type="text" name="" autocomplete="off" class="layui-input">
+						<input type="date" name="date" autocomplete="off" class="layui-input">
 					</div>
-				</div>
+				</div> 
 				<div class="layui-form-item">
-					<label class="layui-form-label">规格</label>
+					<label class="layui-form-label">保质期</label>
 					<div class="layui-input-block">
-						<input type="password" name="password2" autocomplete="off" class="layui-input">
+						<input type="number" name="qualitaDate" autocomplete="off" class="layui-input" placeholder="请输入数字">
 					</div>
-				</div>
-				<div class="layui-form-item">
+				</div> 
+				<!-- <div class="layui-form-item">
 					<label class="layui-form-label">描述</label>
 					<div class="layui-input-block">
-						<textarea name="desc" class="layui-textarea"></textarea>
+						<textarea name="" class="layui-textarea"></textarea>
 					</div>
-				</div>
+				</div> -->
 				<div class="layui-form-item">
-					<label class="layui-form-label">是否是批发商品</label>
+					<label class="layui-form-label">是否上架</label>
 					<div class="layui-input-block">
 						<input type="radio" name="sfpfsp" value="nan" title="是">
 						<input type="radio" name="sfpfsp" value="nv" title="否" checked>
 					</div>
 				</div>
 				<div class="layui-form-item">
-					<label class="layui-form-label">分类</label>
+					<label class="layui-form-label">选择药品类别</label>
 	                <div class="layui-input-inline">
-	                    <select name="provid" id="provid" lay-filter="provid">
-	                        <option value="">一级分类</option>
-					        <option value="0">北京</option>
-					        <option value="1">上海</option>
-					        <option value="2">广州</option>
-					        <option value="3">深圳</option>
-					        <option value="4">杭州</option>
+	                    <select name="one" id="provid" lay-filter="provid" required>
+	                        <option value="-1">选择分类</option>
+	                        <s:iterator value="findAllType" var="type">
+					        	<option value="<s:property value="#type.tid"></s:property>"><s:property value="#type.tname"></s:property></option>
+					        </s:iterator>
 	                    </select>
 	                </div>
-	                <div class="layui-input-inline">
+	                <%-- <div class="layui-input-inline">
 	                    <select name="cityid" id="cityid" lay-filter="cityid">
 	                        <option value="">二级分类</option>
 					        <option value="0">北京</option>
@@ -116,15 +117,31 @@
 					        <option value="3">深圳</option>
 					        <option value="4">杭州</option>
 	                    </select>
+	                </div> --%>
+				</div>
+				
+				<div class="layui-form-item">
+				  
+				  <label class="layui-form-label">供应商</label>
+				  <div class="layui-input-inline">
+	                    <select name="two" id="two">
+	                        <option value="-1">选择供应商</option>
+	                        <s:iterator value="allSuppliers" var="Suppliers">
+					        	<option value="<s:property value="#Suppliers.sid"></s:property>"><s:property value="#Suppliers.sname"></s:property></option>
+					        </s:iterator>
+	                    </select>
 	                </div>
 				</div>
-				<div class="layui-form-item">
+				
+				
+				
+				<!-- <div class="layui-form-item">
 					<label class="layui-form-label">状态</label>
 					<div class="layui-input-block">
 						<input type="radio" name="sex" value="nan" title="启用">
 						<input type="radio" name="sex" value="nv" title="禁用" checked>
 					</div>
-				</div>
+				</div> -->
 				
 				<div class="layui-form-item">
 					<div class="layui-input-block">
@@ -160,6 +177,28 @@
 						}
 					});
 				});
+				
+				//
+				function checkform(){
+					
+					var one = document.getElementById("provid");
+					var two = document.getElementById("two");
+					if(one.value==-1){
+						alert("请选择药品类别！");
+					}else if(two.value == -1){
+						alert("请选择供应商和药品类别！");
+					}else{
+						return true;
+					}
+					
+				
+					
+				}
+				
+				
+				
+				
+				
 			</script>
 
 		</div>
