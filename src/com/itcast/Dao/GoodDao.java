@@ -3,8 +3,6 @@ package com.itcast.Dao;
 import java.util.List;
 
 import com.itcast.entity.Good;
-import com.itcast.entity.Supplier;
-import com.itcast.entity.Type;
 
 public interface GoodDao {
 	/**
@@ -16,13 +14,13 @@ public interface GoodDao {
 	 * 增加药品
 	 * @param good
 	 */
-	public void goodsAdd(Good good,Type type,Supplier supplier);
+	public void goodsAdd(Good good);
 	
 	/**
 	 * 更新药品信息
 	 * @param good
 	 */
-	public void updateGoods(Integer id,Integer tid,Integer sid);
+	public void updateGoods(Good good);
 	
 	/**
 	 * 删除药品
@@ -34,5 +32,7 @@ public interface GoodDao {
 	 * @return
 	 */
 	public List<Good> findSomeGood(String goodsname);
+
+	public Good findById(Integer gid);
 	
 }

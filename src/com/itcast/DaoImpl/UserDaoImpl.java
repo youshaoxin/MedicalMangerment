@@ -81,4 +81,18 @@ public class UserDaoImpl implements UserDao{
 		List<User> userlist = (List<User>) hibernateTemplate.find("from User u where u.phone=?", phone);
 		return userlist;
 	}
+
+
+	/**
+	 * 会员登录
+	 */
+	@Override
+	public User login(User user) {
+		List<User> list = (List<User>) hibernateTemplate.find("from User u where u.username=? and phone=?", user.getUsername(),user.getPhone());
+		if(list.size()>0) {
+			return list.get(0);
+		}
+		
+		return null;
+	}
 }

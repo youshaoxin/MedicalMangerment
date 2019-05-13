@@ -29,8 +29,4 @@ public class Stock {
 	public void setSid(Integer sid) {
 		this.sid = sid;
 	}
-	
-	
-	
-	
 }

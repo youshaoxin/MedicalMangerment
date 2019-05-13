@@ -6,8 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.itcast.Dao.GoodDao;
 import com.itcast.entity.Good;
-import com.itcast.entity.Supplier;
-import com.itcast.entity.Type;
 
 //事务的注解记得一定不要忘了加！
 @Transactional
@@ -31,9 +29,9 @@ public class GoodService {
 	/**
 	 * 增加商品
 	 */
-	public void goodsAdd(Good good,Type type,Supplier supplier) {
+	public void goodsAdd(Good good) {
 		// TODO Auto-generated method stub
-		goodDao.goodsAdd(good,type,supplier);
+		goodDao.goodsAdd(good);
 	}
 	
 	
@@ -41,9 +39,9 @@ public class GoodService {
 	 * 修改商品信息
 	 * @param good
 	 */
-	public void updateGoods(Integer id,Integer tid,Integer sid) {
+	public void updateGoods(Good good) {
 		// TODO Auto-generated method stub
-		goodDao.updateGoods(id,tid,sid);
+		goodDao.updateGoods(good);
 	}
 	
 	/**
@@ -64,6 +62,16 @@ public class GoodService {
 		List<Good> SomeGoodlist = goodDao.findSomeGood(goodsname);
 		
 		return SomeGoodlist;
+	}
+
+	/**
+	 * 根据id查询商品（ypf+）
+	 * @param gid
+	 * @return 
+	 */
+	public Good findById(Integer gid) {
+		return goodDao.findById(gid);
+		
 	}
 	
 	

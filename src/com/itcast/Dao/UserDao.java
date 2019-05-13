@@ -24,4 +24,7 @@ public interface UserDao {
 	//根据手机号查询会员方法
 	public List<User> searchUser(String phone);
 
+	//会员登录
+	public User login(User user);
+
 }

@@ -20,17 +20,17 @@
 				*cascade:级联
 				*inverse ：放弃外键使用权。
 		-->
-		<!-- <set name="indent" cascade="save-update,delete" >
-			key标签
+		<set name="indent" cascade="save-update,delete"  inverse="true">
+			<!--  key标签
 				*column:多的一方的外键名称
-			
+			-->
 			<key column="uid"></key>
-			
+			<!--
 			one-to-many：标签
 				*class：多的一方的类的全路径
-			
+			-->
 			<one-to-many class="com.itcast.entity.Indent"/>
-		</set> -->
+		</set>
 	</class>
 	
 </hibernate-mapping>
