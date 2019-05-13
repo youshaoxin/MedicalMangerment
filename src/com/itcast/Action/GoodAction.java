@@ -209,9 +209,30 @@ public class GoodAction extends ActionSupport implements ModelDriven<Good>{
 	
 	
 	
+	/**
+	 * 前台查找商品（ypf+）
+	 * @return
+	 */
+	public String shopSearchGood() {	
+		List<Good> GoodList = goodService.findSomeGood(goods.getGname());
+		ActionContext.getContext().getValueStack().set("GoodList", GoodList);
+		return "shopSearchGood";
+	}
 	
-	
-	
+	/**
+	 * 前台遍历所有商品(ypf+)
+	 * @return
+	 */
+	public String findAllShopGoods() {
+		
+		List<Good> GoodList = goodService.findAllGoods();
+		List<Type> findAllType = typeService.findAllType();
+		
+		ActionContext.getContext().getValueStack().set("GoodList", GoodList);
+		ActionContext.getContext().getValueStack().set("findAllType", findAllType);
+			
+		return "findAllShopGoods";
+	}
 	
 
 	@Override
@@ -219,5 +240,4 @@ public class GoodAction extends ActionSupport implements ModelDriven<Good>{
 		// TODO Auto-generated method stub
 		return goods;
 	}
-
 }

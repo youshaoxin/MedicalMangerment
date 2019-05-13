@@ -13,7 +13,7 @@
 		
 		
 		<!-- 配置和商品表的一对多关系 -->
-		<set name="suppliergoods" inverse="true" cascade="save-update,delete">
+		<set name="suppliergoods" inverse="true" cascade="save-update,delete" lazy="false">
 			<key column="sid"></key>
 			<one-to-many class="com.itcast.entity.Good"/>
 		</set>

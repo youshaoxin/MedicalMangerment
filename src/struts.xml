@@ -7,9 +7,8 @@
 <struts>
 	<package name="demo1" extends="struts-default" namespace="/">
 	<!-- class属性不写action全路径了，因为写了action会创建两次，写spring 配置的action的bean的id值-->
-	
-		<action name="userAction" class="userAction"></action>
-		
+
+<!-- ======================================================================================================-->	
 		
 	<!-- 药品Action -->
 		<action name="goods_*" class="goodAction" method="{1}">
@@ -27,10 +26,12 @@
 			<result name="findSomeGood">/tgls/goodsManage/goods_find_list.jsp</result>
 			<!-- 根据类别查找商品 -->
 			<result name="findTypeGoods">/tgls/goodsManage/goods_find_list.jsp</result>
-			
+			<!-- 购物首页查找商品 -->			
+			<result name="shopSearchGood" >/tgls/shop/shop_list.jsp</result>
+			<result name="findAllShopGoods" >/tgls/shop/shop_list.jsp</result>	
 		</action>
 		
-		
+<!-- ======================================================================================================-->		
 	
 	<!-- 类别Action -->
 		<action name="type_*" class="typeAction" method="{1}">
@@ -42,23 +43,37 @@
 			<result name="findIndexTypes">/tgls/goodsManage/goods_list.jsp</result>
 		</action>
 		
-		
+<!-- ======================================================================================================-->		
 		
 	<!-- 会员Action -->	
 		<action name="user_*" class="userAction" method="{1}">
-			<result name="success">/tgls/base/base_list.jsp</result>
+			<result name="success">/tgls/user/user_list.jsp</result>
 			<result name="addSuccess" type="redirectAction">user_findAllUserList</result>
 			<result name="deleteSuccess" type="redirectAction">user_findAllUserList</result>
 			<result name="updateSuccess" type="redirectAction">user_findAllUserList</result>
-			<result name="searchSuccess"  >/tgls/base/base_list.jsp</result>
-			<result name="editSuccess">/tgls/base/base_edit.jsp</result>
+			<result name="searchSuccess" >/tgls/user/user_list.jsp</result>
+			<result name="editSuccess">/tgls/user/user_edit.jsp</result>
+			<result name="loginSuccess">/tgls/shop/user_login.jsp</result>
 		</action>
 			
+<!-- ======================================================================================================-->	
+	
+	<!-- 买药ShopAction -->	
+		<action name="shop_*" class="shopAction" method="{1}">
+			<result name="addSuccess" type="redirectAction">goods_findAllShopGoods</result>
+			<result name="removeSuccess">/tgls/shop/shop_addList.jsp</result>
+			<result name="clearSuccess">/tgls/shop/shop_addList.jsp</result>
+			<result name="commitSuccess">/tgls/shop/shop_settle.jsp</result>
+			
+		</action>
 		
-		
-		
-		
-		
+	<!-- 订单IndentAction -->	
+		<action name="indent_*" class="indentAction" method="{1}">
+			<result name="addSuccess" type="redirectAction">indent_findIndent</result>
+			<result name="findSuccess" >/tgls/shop/shop_indent.jsp</result>
+			<result name="findDetailSuccess" >/tgls/shop/shop_indentDetail.jsp</result>
+			<result name="searchSuccess" >/tgls/shop/shop_indent.jsp</result>
+		</action>
 		
 	</package>
 	

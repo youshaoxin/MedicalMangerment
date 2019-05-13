@@ -17,11 +17,11 @@
 		
 		<!-- 配置和类型表的多对一关系 -->
 		<!-- 类型对产品 -->
-		<many-to-one name="type" class="com.itcast.entity.Type" column="tid"></many-to-one>
+		<many-to-one name="type" class="com.itcast.entity.Type"  column="tid" lazy="false"></many-to-one>
 		
 		
 		<!-- 供应商对药品 -->
-		<many-to-one name="sid" class="com.itcast.entity.Supplier" column="sid"></many-to-one>
+		<many-to-one name="sid" class="com.itcast.entity.Supplier" column="sid" lazy="false"></many-to-one>
 	
 	
 	</class>

@@ -106,4 +106,17 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		return "searchSuccess";
 		
 	}
+	/**
+	 *会员登录
+	 * @return
+	 */
+	public String login() {
+		User userlogin=userService.login(user);
+		if(userlogin==null) {
+			System.out.println("登录失败");
+		}
+		ServletActionContext.getRequest().getSession().setAttribute("userlogin", userlogin);
+		System.out.println(userlogin);
+		return "loginSuccess";
+	}
 }

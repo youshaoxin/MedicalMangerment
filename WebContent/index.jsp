@@ -52,11 +52,12 @@
 		        	<li>
 		                <a class="menuFA" href="javascript:void(0)"><i class="iconfont icon-liuliangyunpingtaitubiao03 left" onmouseenter="getLeftTips(this, '代理商管理')" onmouseleave="layer.closeAll('tips')"></i><font>前台零售</font><i class="iconfont icon-dajiantouyou right"></i></a>
 		                <dl>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_add.html',this, 'page10022')">药品结算</a></dt>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_list.html',this, 'page10023')">购买记录</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/goods_findAllShopGoods',this, 'page10025')">药品查询</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/shop/shop_addList.jsp',this, 'page10022')">药品结算</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/shop/user_login.jsp',this, 'page10027')">会员登录</a></dt>
+		                	<%-- <dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/shop/shop_settle.jsp',this, 'page10022')">药品结算</a></dt> --%>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/shop/indent_findIndent',this, 'page10023')">购买记录</a></dt>
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_list.html',this, 'page10023')">退换处理</a></dt>
-		                	
-		                	
 		                </dl>
 		            </li>
 		        	<li>
@@ -71,8 +72,8 @@
 		                <a class="menuFA" href="javascript:void(0)"><i class="iconfont icon-yunying left" onmouseenter="getLeftTips(this, '基础库内容')" onmouseleave="layer.closeAll('tips')"></i><font>会员管理</font><i class="iconfont icon-dajiantouyou right"></i></a>
 		                <dl> 
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/user_findAllUserList',this, 'page10028')">会员列表</a></dt>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/base/base_add.jsp',this, 'page10027')">添加会员</a></dt>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/base/maintain.html',this, 'page10032')">维护中页面</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/user/user_add.jsp',this, 'page10027')">添加会员</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/user/maintain.html',this, 'page10032')">维护中页面</a></dt>
 		                </dl>
 		           	</li>
 		        

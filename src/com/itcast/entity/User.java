@@ -13,7 +13,7 @@ public class User {
 	private String sex;				//会员性别	
 	//通过ORM的方式表示：一个会员对应多个订单
 	//放置多的一方的集合.Hibernate默认使用的是Set集合
-//	private Set<Indent> indent=new HashSet<Indent>();
+	private Set<Indent> indent=new HashSet<Indent>();
 	public Integer getUid() {
 		return uid;
 	}
@@ -56,12 +56,12 @@ public class User {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-//	public Set<Indent> getIndent() {
-//		return indent;
-//	}
-//	public void setIndent(Set<Indent> indent) {
-//		this.indent = indent;
-//	}
+	public Set<Indent> getIndent() {
+		return indent;
+	}
+	public void setIndent(Set<Indent> indent) {
+		this.indent = indent;
+	}
 	@Override
 	public String toString() {
 		return "User [uid=" + uid + ", username=" + username + ", cardNum=" + cardNum + ", phone=" + phone + ", adress="

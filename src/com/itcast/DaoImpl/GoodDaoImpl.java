@@ -99,4 +99,13 @@ public class GoodDaoImpl implements GoodDao {
 		return findgoods;
 	}
 
+	/**
+	 * 根据id查询商品（ypf+）
+	 */
+	@Override
+	public Good findById(Integer gid) {
+		Good good=hibernateTemplate.get(Good.class, gid);
+		return good;
+	}
+
 }

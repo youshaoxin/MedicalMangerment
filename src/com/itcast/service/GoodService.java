@@ -63,6 +63,16 @@ public class GoodService {
 		
 		return SomeGoodlist;
 	}
+
+	/**
+	 * 根据id查询商品（ypf+）
+	 * @param gid
+	 * @return 
+	 */
+	public Good findById(Integer gid) {
+		return goodDao.findById(gid);
+		
+	}
 	
 	
 }

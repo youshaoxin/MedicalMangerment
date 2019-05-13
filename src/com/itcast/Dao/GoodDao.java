@@ -32,5 +32,7 @@ public interface GoodDao {
 	 * @return
 	 */
 	public List<Good> findSomeGood(String goodsname);
+
+	public Good findById(Integer gid);
 	
 }
