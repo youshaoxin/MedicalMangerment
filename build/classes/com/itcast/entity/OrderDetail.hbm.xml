@@ -1,0 +1,31 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.itcast.entity.OrderDetial" table="orderDetail">
+		<id name="orderId" column="orderId">
+			<generator class="native"></generator>
+		</id>
+<!--  	private Integer orderId;//订单主键
+	private String ordernumber; //订单编号
+	private String orName;//订单药品名称
+	private double orUnitPrice; //单价
+	private String orValDate;//有效期
+	private Date orProductDate;//出厂日期
+	private Integer tid; //药品类型id
+	private Integer ornum;//数量
+	private double orsum;//总价
+	-->
+		<property name="ordernumber" column="ordernumber"></property>
+		<property name="orName" column="orName"></property>
+		<property name="orUnitPrice" column="orUnitPrice"></property>
+		<property name="orValDate" column="orValDate"></property>
+		<property name="orProductDate" column="orProductDate"></property>
+		<property name="tid" column="tid"></property>
+		<property name="ornum" column="ornum"></property>
+		<property name="orsum" column="orsum"></property>
+ 
+	</class>
+	
+</hibernate-mapping>

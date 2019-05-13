@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.itcast.entity.Good" table="goods">
+		<id name="stockid" column="stockid">
+			<generator class="native"></generator>
+		</id>
+		<property name="gid" column="gid"></property>
+		<property name="stockNum" column="stockNum"></property>
+		<property name="sid" column="sid"></property>
+		
+	
+	
+	</class>
+	
+</hibernate-mapping>

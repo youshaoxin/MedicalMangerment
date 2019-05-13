@@ -1,0 +1,16 @@
+*{padding:0px; margin:0px; list-style:none;}
+body{width:100%;margin:0px;padding:0px;background:url(../images/bg03.jpg);width:100%;height:100%}
+.top{width:960px;height:336px;margin:0 auto; background:url(../images/bg01s.jpg) no-repeat; position:relative}
+.bottom{width:960px;height:305px;margin:0 auto; background:url(../images/bg02.jpg) no-repeat; position:relative}
+#username,#p_t,#userpwd,#validatecode{ position:absolute;top:206px;left:187px;width:193px;height:34px;border:0px;font-size:14px;line-height:30px;color:#666}
+#p_t,#userpwd{left:402px; z-index:2}
+#validatecode{left:618px; z-index:2;width:113px}
+#vcodesrc{ position:absolute;top:165px;left:616px; font-family:Arial}
+#userpwd{z-index:1;color:#333}
+#login_bt{position:absolute;top:207px;left:751px;width:102px;height:33px; background:transparent; z-index:3;border:0px; cursor:pointer}
+.forget{color:#94adc3;position:absolute;top:247px;left:805px;font-size:12px; text-decoration:none}
+.forget1{color:#ff6600;position:absolute;top:247px;left:745px;font-size:12px; text-decoration:none}
+.item_list{position:absolute;top:70px;left:505px;width:300px;padding-top:20px;}
+ul,li{padding:0;margin:0; font-size:12px;list-style:none; border:0;font-weight:normal;}
+.item_list ul{width:100%}
+.item_list li{width:100%;line-height:24px;color:#fff;}

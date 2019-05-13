@@ -1,0 +1,19 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.itcast.entity.Type" table="type">
+		<id name="tid" column="tid">
+			<generator class="native"></generator>
+		</id>
+		<property name="tname" column="tname"></property>
+		
+		<!-- 配置和商品表的一对多关系 -->
+		<set name="setgoods" cascade="save-update,delete" lazy="false" inverse="false">
+			<key column="tid"></key>
+			<one-to-many class="com.itcast.entity.Good"/>
+		</set>
+	</class>
+	
+</hibernate-mapping>

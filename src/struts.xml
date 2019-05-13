@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+	<package name="demo1" extends="struts-default" namespace="/">
+	<!-- class属性不写action全路径了，因为写了action会创建两次，写spring 配置的action的bean的id值-->
+	
+		<action name="userAction" class="userAction"></action>
+		
+		
+	<!-- 药品Action -->
+		<action name="goods_*" class="goodAction" method="{1}">
+			<!-- 查找显示所有药品 -->
+			<result name="findAllGoods">/tgls/goodsManage/goods_list.jsp</result>
+			<!-- 药品添加 -->
+			<result name="goodsAdd" type="redirect">goods_findAllGoods</result>
+			<!-- 显示修改药品的信息 -->
+			<result name="updateShowGoods">/tgls/goodsManage/goods_update.jsp</result>
+			<!-- 修改药品信息，注意：修改完跳转到显示的action,再显示数据-->
+			<result name="updateGoods" type="redirect">goods_findAllGoods</result>
+			<!-- 删除药品信息 -->
+			<result name="deleteGoods" type="redirect">goods_findAllGoods</result>
+			<!-- 模糊查找商品 -->
+			<result name="findSomeGood">/tgls/goodsManage/goods_find_list.jsp</result>
+			<!-- 根据类别查找商品 -->
+			<result name="findTypeGoods">/tgls/goodsManage/goods_find_list.jsp</result>
+			<!-- 跳转到手动添加商品页面 -->
+			<result name="addGoodsPage">/tgls/goodsManage/goods_add.jsp</result>
+			
+			<!-- 购物首页查找商品 -->			
+			<result name="shopSearchGood" >/tgls/shop/shop_list.jsp</result>
+			<result name="findAllShopGoods" >/tgls/shop/shop_list.jsp</result>
+				
+		</action>
+		
+	<!-- ======================================================================================================-->			
+	
+	<!-- 类别Action -->
+		<action name="type_*" class="typeAction" method="{1}">
+			<!-- 查找所有类别 -->
+			<result name="findAllType">/tgls/goodsManage/goodsType_list.jsp</result>
+			<!-- 级联删除类别 -->
+			<result name="deleteGoods">/test.jsp</result>
+			
+			<result name="findIndexTypes">/tgls/goodsManage/goods_list.jsp</result>
+		</action>
+		
+		
+		
+	<!-- ======================================================================================================-->		
+		
+	<!-- 会员Action -->	
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="success">/tgls/user/user_list.jsp</result>
+			<result name="addSuccess" type="redirectAction">user_findAllUserList</result>
+			<result name="deleteSuccess" type="redirectAction">user_findAllUserList</result>
+			<result name="updateSuccess" type="redirectAction">user_findAllUserList</result>
+			<result name="searchSuccess" >/tgls/user/user_list.jsp</result>
+			<result name="editSuccess">/tgls/user/user_edit.jsp</result>
+			<result name="loginSuccess">/tgls/shop/user_login.jsp</result>
+		</action>
+			
+	<!-- ======================================================================================================-->	
+	
+	<!-- 买药ShopAction -->	
+		<action name="shop_*" class="shopAction" method="{1}">
+			<result name="addSuccess" type="redirectAction">goods_findAllShopGoods</result>
+			<result name="removeSuccess">/tgls/shop/shop_addList.jsp</result>
+			<result name="clearSuccess">/tgls/shop/shop_addList.jsp</result>
+			<result name="commitSuccess">/tgls/shop/shop_settle.jsp</result>
+		</action>
+		
+		
+		
+		
+<!-- ======================================================================================================-->	
+	<!-- 订单IndentAction -->	
+		<action name="indent_*" class="indentAction" method="{1}">
+			<result name="addSuccess" type="redirectAction">indent_findIndent</result>
+			<result name="findSuccess" >/tgls/shop/shop_indent.jsp</result>
+			<result name="findDetailSuccess" >/tgls/shop/shop_indentDetail.jsp</result>
+			<result name="searchSuccess" >/tgls/shop/shop_indent.jsp</result>
+		</action>
+		
+		
+		
+<!-- ======================================================================================================-->		
+		<!-- 仓库管理action -->
+		
+        <action name="repertory_*" class="repertoryAction" method="{1}">
+	        <!-- 查询仓库-->
+	        <result name="repertoryall2">/tgls/into_out/outData.jsp</result>
+	        <!--查询仓库和good的级联 还没使用  -->
+	        <result name="repertoryall">/tgls/into_out/outData.jsp</result>
+	        <!-- tgls/into_out/outData.jsp -->
+	        <!-- 根据订单是否存在编号 查询 -->
+	        <result name="selectorder">/tgls/into_out/increase2.jsp</result>
+	        <result name="selectorderfase">/tgls/into_out/increase.jsp</result>
+	        <!-- 根据订单编号 加入到库存    然后在  进行查询仓库  -->
+	        <result name="increasedate" type="redirectAction">repertory_repertoryall2</result> 
+	        <!-- 根据时间模糊查询 -->
+	        <result name="mohuselect"></result>
+        </action>
+		
+		
+		
+		
+	</package>
+	
+	
+	
+</struts>

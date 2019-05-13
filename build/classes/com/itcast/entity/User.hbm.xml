@@ -1,0 +1,36 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.itcast.entity.User" table="user">
+		<id name="uid" column="uid">
+			<generator class="native"></generator>
+		</id>
+		<property name="username" column="username"></property>
+		<property name="cardNum" column="cardNum"></property>
+		<property name="phone" column="phone"></property>
+		<property name="adress" column="adress"></property>
+		<property name="sex" column="sex"></property>
+		
+		
+		<!-- 配置一对多的映射：放置的多的一方的集合 -->
+		<!-- set标签 
+				*name:多的一方的对象集合的属性名称
+				*cascade:级联
+				*inverse ：放弃外键使用权。
+		-->
+		<set name="indent" cascade="save-update,delete"  inverse="true">
+			<!--  key标签
+				*column:多的一方的外键名称
+			-->
+			<key column="uid"></key>
+			<!--
+			one-to-many：标签
+				*class：多的一方的类的全路径
+			-->
+			<one-to-many class="com.itcast.entity.Indent"/>
+		</set>
+	</class>
+	
+</hibernate-mapping>
