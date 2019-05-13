@@ -6,12 +6,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.itcast.Dao.GoodDao;
 import com.itcast.entity.Good;
-import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Woodstox;
-import com.sun.xml.internal.ws.assembler.MetroConfigNameImpl;
+import com.itcast.entity.Supplier;
+import com.itcast.entity.Type;
 
 //事务的注解记得一定不要忘了加！
 @Transactional
 public class GoodService {
+	
+	
 	private GoodDao goodDao;
 
 	public void setGoodDao(GoodDao goodDao) {
@@ -29,9 +31,9 @@ public class GoodService {
 	/**
 	 * 增加商品
 	 */
-	public void goodsAdd(Good good) {
+	public void goodsAdd(Good good,Type type,Supplier supplier) {
 		// TODO Auto-generated method stub
-		goodDao.goodsAdd(good);
+		goodDao.goodsAdd(good,type,supplier);
 	}
 	
 	
@@ -39,9 +41,9 @@ public class GoodService {
 	 * 修改商品信息
 	 * @param good
 	 */
-	public void updateGoods(Good good) {
+	public void updateGoods(Integer id,Integer tid,Integer sid) {
 		// TODO Auto-generated method stub
-		goodDao.updateGoods(good);
+		goodDao.updateGoods(id,tid,sid);
 	}
 	
 	/**
@@ -63,6 +65,17 @@ public class GoodService {
 		
 		return SomeGoodlist;
 	}
+	/**
+	 * 根据id查询商品（ypf+）
+	 * @param gid
+	 * @return 
+	 */
+	public Good findById(Integer gid) {
+		return goodDao.findById(gid);
+		
+	}
+	
+	
 	
 	
 }

@@ -14,6 +14,7 @@
 	http://www.springframework.org/schema/tx
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
+	<!-- Type Action -->
 	<bean id="typeAction" class="com.itcast.Action.TypeAction" scope="prototype">
 		<property name="typeService" ref="typeService"></property>
 	</bean>
@@ -26,9 +27,14 @@
 		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
 	</bean>
 	
-	
+	<!-- ================================================================================================-->
+	<!-- 药品Action -->
 	<bean id="goodAction" class="com.itcast.Action.GoodAction" scope="prototype">
 		<property name="goodService" ref="goodService"></property>
+		
+		<property name="typeService" ref="typeService"></property>
+		
+		<property name="supplierService" ref="supplierService"></property>
 	</bean>
 	<bean id="goodService" class="com.itcast.service.GoodService">
 		<!-- 注入Dao -->
@@ -38,10 +44,25 @@
 		<!-- 在userDaoImpl中注入hibernateTemplate -->
 		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
 	</bean>
+	<!-- ================================================================================================-->
+	
+	<!-- 供应商Action -->
+	<bean id="supplierAction" class="com.itcast.Action.SupplierAction" scope="prototype">
+		<property name="supplierService" ref="supplierService"></property>
+	</bean>
+	<bean id="supplierService" class="com.itcast.service.SupplierService">
+		<!-- 注入Dao -->
+		<property name="supplierDao" ref="supplierDaoImpl"></property>
+	</bean>
+	<bean id="supplierDaoImpl" class="com.itcast.DaoImpl.SupplierDaoImpl">
+		<!-- 在userDaoImpl中注入hibernateTemplate -->
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<!-- ================================================================================================-->
 	
 	
-	
-	<!-- 配置action的对象 -->
+	<!-- 用户action的对象 -->
 	<bean id="userAction" class="com.itcast.Action.UserAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>
@@ -51,7 +72,6 @@
 		<!-- 注入Dao -->
 		<property name="userDao" ref="userDaoImpl"></property>
 	</bean>
-	
 
 	<!-- 创建UserDao实现类的对象 -->
 	<bean id="userDaoImpl" class="com.itcast.DaoImpl.UserDaoImpl">
@@ -59,7 +79,77 @@
 		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
 	</bean>
 	
+	<!-- ================================================================================================-->
 	
+	<!-- 买药action的对象 -->
+	<bean id="shopAction" class="com.itcast.Action.ShopAction" scope="prototype">
+		<property name="shopService" ref="shopService"></property>
+		<property name="goodService" ref="goodService"></property>
+	</bean>
+	
+	<!-- 创建service对象 -->
+	<bean id="shopService" class="com.itcast.service.ShopService">
+		<!-- 注入Dao -->
+		<property name="shopDao" ref="shopDaoImpl"></property>
+	</bean>
+
+	<!-- 创建ShopDao实现类的对象 -->
+	<bean id="shopDaoImpl" class="com.itcast.DaoImpl.ShopDaoImpl">
+		<!-- 在shopDaoImpl中注入hibernateTemplate -->
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<!-- ================================================================================================-->
+	
+	<!-- 订单action的对象 -->
+	<bean id="indentAction" class="com.itcast.Action.IndentAction" scope="prototype">
+		<property name="indentService" ref="indentService"></property>
+		<property name="indentDetailService" ref="indentDetailService"></property>
+		<property name="userService" ref="userService"></property>
+	</bean>
+	
+	<!-- 创建service对象 -->
+	<bean id="indentService" class="com.itcast.service.IndentService">
+		<!-- 注入Dao -->
+		<property name="indentDao" ref="indentDaoImpl"></property>
+	</bean>
+
+	<!-- 创建IndentDao实现类的对象 -->
+	<bean id="indentDaoImpl" class="com.itcast.DaoImpl.IndentDaoImpl">
+		<!-- 在indentDaoImpl中注入hibernateTemplate -->
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	
+	<!-- ================================================================================================-->
+	
+	<!-- 订单详情Action -->
+	<!-- 创建service对象 -->
+	<bean id="indentDetailService" class="com.itcast.service.IndentDetailService">
+		<!-- 注入Dao -->
+		<property name="indentDetailDao" ref="indentDetailDaoImpl"></property>
+	</bean>
+
+	<!-- 创建IndentDao实现类的对象 -->
+	<bean id="indentDetailDaoImpl" class="com.itcast.DaoImpl.IndentDetailDaoImpl">
+		<!-- 在indentDaoImpl中注入hibernateTemplate -->
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<!-- ================================================================================================-->
+	<!-- 仓库管理 repertoryAction-->
+	
+	<!--  创建Repertory 的action-->
+	<bean id="repertoryAction" class="com.itcast.Action.RepertoryAction" scope="prototype">
+	  <property name="repertoryService" ref="repertoryService"></property>
+	</bean>
+	
+	<bean  id="repertoryService" class="com.itcast.service.RepertoryService">
+	  <property name="repertoryDao" ref="repertoryDaoImpl"></property>
+	</bean>
+	<bean  id="repertoryDaoImpl" class="com.itcast.DaoImpl.RepertoryDaoImpl">
+	  <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
 	
 	
 </beans>

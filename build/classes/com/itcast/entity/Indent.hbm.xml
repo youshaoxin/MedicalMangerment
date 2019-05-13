@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.itcast.entity.Indent" table="indent">
+		<id name="iid" column="iid">
+			<generator class="native"></generator>
+		</id>
+		<property name="indentid" column="indentid"></property>
+		<property name="indentPrice" column="indentPrice"></property>
+		<property name="indentDate" column="indentDate"></property>
+		<!-- 配置多对一的关系:放置的是一的一方的对象 -->
+    		<!-- 
+ 				many-to-one标签
+ 					*name 一的一方的对象属性名称
+ 					*class 一的一方的类的全路径
+ 					*column 在多的一方的表的外键名称  		
+    		 -->
+    		 <!-- 我们只要一操作联系人中的customer对象，就相当于操作表里的外键 -->
+    		<many-to-one name="user" cascade="save-update" class="com.itcast.entity.User" column="uid"></many-to-one> 
+	</class>
+	
+</hibernate-mapping>

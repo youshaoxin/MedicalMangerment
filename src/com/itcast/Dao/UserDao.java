@@ -21,4 +21,10 @@ public interface UserDao {
 	//修改会员信息
 	public void updateUser(User user);
 
+	//根据手机号查询会员方法
+	public List<User> searchUser(String phone);
+
+	//会员登录
+	public User login(User user);
+
 }

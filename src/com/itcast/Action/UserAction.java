@@ -74,7 +74,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	 * @return
 	 */
 	public String editUser() {
-		//根据id查询,跳转页面，回显
+		//跳转页面，回显
 		user = userService.finById(user.getUid());
 		/**
 		 * 将user传递到页面：两种方式：一种，手动压栈。二种：因为模型驱动的对象，默认在栈顶
@@ -84,8 +84,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		ActionContext.getContext().getValueStack().push(user);
 		return "editSuccess";
 	}
-	
-	
+
 	/**
 	 * 修改会员信息
 	 * @return
@@ -94,5 +93,30 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		userService.updateUser(user);
 		return "updateSuccess";
 	}
-
+	
+	
+	/**
+	 *查询会员信息
+	 * @return
+	 */
+	public String searchUser() {
+		//根据手机号码查询
+		List<User> userlist = userService.searchUser(user.getPhone());
+		ActionContext.getContext().getValueStack().set("userlist", userlist);;
+		return "searchSuccess";
+		
+	}
+	/**
+	 *会员登录
+	 * @return
+	 */
+	public String login() {
+		User userlogin=userService.login(user);
+		if(userlogin==null) {
+			System.out.println("登录失败");
+		}
+		ServletActionContext.getRequest().getSession().setAttribute("userlogin", userlogin);
+		System.out.println(userlogin);
+		return "loginSuccess";
+	}
 }

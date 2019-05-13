@@ -26,7 +26,7 @@
 		<!-- 公共样式 开始 -->
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/base.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/fonts/iconfont.css">
-		<script type="text/javascript" src="${pageContext.request.contextPath}/framework/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/framework/jquery-3.4.0.js"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/layui/css/layui.css">
 		<script type="text/javascript" src="${pageContext.request.contextPath}/layui/layui.js"></script>
 		<script src="${pageContext.request.contextPath}/framework/cframe.js"></script><!-- 仅供所有子页面使用 -->

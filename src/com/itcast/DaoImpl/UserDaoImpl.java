@@ -69,8 +69,30 @@ public class UserDaoImpl implements UserDao{
 	 */
 	@Override
 	public void updateUser(User user) {
-		System.out.println("impl111111111");
 		hibernateTemplate.update(user);
-		System.out.println("impl222222222");
+	}
+
+
+	/**
+	 * 根据手机号码查询会员
+	 */
+	@Override
+	public List<User> searchUser(String phone) {
+		List<User> userlist = (List<User>) hibernateTemplate.find("from User u where u.phone=?", phone);
+		return userlist;
+	}
+
+
+	/**
+	 * 会员登录
+	 */
+	@Override
+	public User login(User user) {
+		List<User> list = (List<User>) hibernateTemplate.find("from User u where u.username=? and phone=?", user.getUsername(),user.getPhone());
+		if(list.size()>0) {
+			return list.get(0);
+		}
+		
+		return null;
 	}
 }

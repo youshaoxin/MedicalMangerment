@@ -11,9 +11,6 @@
 		<property name="stockNum" column="stockNum"></property>
 		<property name="sid" column="sid"></property>
 		
-		
-		<!-- 配置和类型表的多对一关系 -->
-		<!-- <many-to-one name="type" class="com.itcast.entity.Type" column="tid"></many-to-one> -->
 	
 	
 	</class>

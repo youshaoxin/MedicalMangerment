@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -36,20 +38,23 @@
 			.layui-input-block{
 				margin-left: 130px;
 			}
+			.layui-form{
+				margin-right: 30%;
+			}
 		</style>
 
 	</head>
 
 	<body>
 		<div class="cBody">
-			<form id="addForm" class="layui-form" action="${pageContext.request.contextPath}/goods_updateGoods" method="post">
+			<form id="addForm" class="layui-form" method="post" action="${pageContext.request.contextPath}/goods_updateGoods" onsubmit="return checkform()">
 				<div class="layui-form-item">
-					<label class="layui-form-label">商品名称</label>
+					<label class="layui-form-label">药品名称</label>
 					<div class="layui-input-block">
-						<input type="text" name="gname" required lay-verify="required" autocomplete="off" class="layui-input" value="<s:property value="goods.gname"/>">
+						<input type="text" name="gname" required lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入药品名" value="<s:property value="goods.gname"/>">
 					</div>
 				</div>
-				<!-- <div class="layui-form-item">
+				 <!-- <div class="layui-form-item">
 					<label class="layui-form-label">商品图片</label>
 					<div class="layui-upload-drag" id="goodsPic">
 					  <i class="layui-icon"></i>
@@ -57,67 +62,90 @@
 					</div>
 				</div> -->
 				<div class="layui-form-item">
-					<label class="layui-form-label">出售价格：</label>
+					<label class="layui-form-label">药品id</label>
 					<div class="layui-input-block">
-						<input type="text" name="price" lay-verify="required|number" autocomplete="off" class="layui-input" value="<s:property value="goods.price"/>">
+						<input type="number" name="gid" lay-verify="required|number" autocomplete="off" class="layui-input" placeholder="请输入数字" value="<s:property value="goods.gid"/>">
 					</div>
 				</div>
 				<div class="layui-form-item">
-					<label class="layui-form-label">类别</label>
+					<label class="layui-form-label">价格</label>
 					<div class="layui-input-block">
-						<input type="text" name="" lay-verify="required|number" autocomplete="off" class="layui-input">
+						<input type="number" name="price" lay-verify="required|number" autocomplete="off" class="layui-input" placeholder="请输入数字" value="<s:property value="goods.price"/>">
 					</div>
 				</div>
-				<div class="layui-form-item">
-					<label class="layui-form-label">型号</label>
+				 <div class="layui-form-item">
+					<label class="layui-form-label">生产日期</label>
 					<div class="layui-input-block">
-						<input type="password" name="password" autocomplete="off" class="layui-input">
+						<input type="date" name="" autocomplete="off" class="layui-input" value="<s:property value="goods.date"/>">
 					</div>
-				</div>
+				</div> 
 				<div class="layui-form-item">
-					<label class="layui-form-label">id</label>
+					<label class="layui-form-label">保质期</label>
 					<div class="layui-input-block">
-						<input type="text" name="gid" autocomplete="off" class="layui-input" value="<s:property value="goods.gid"/>">
+						<input type="number" name="qualitaDate" autocomplete="off" class="layui-input" placeholder="请输入数字" value="<s:property value="goods.qualitaDate"/>">
 					</div>
-				</div>
-				<div class="layui-form-item">
+				</div> 
+				<!-- <div class="layui-form-item">
 					<label class="layui-form-label">描述</label>
 					<div class="layui-input-block">
-						<textarea name="desc" class="layui-textarea"></textarea>
+						<textarea name="" class="layui-textarea"></textarea>
 					</div>
-				</div>
+				</div> -->
 				<div class="layui-form-item">
-					<label class="layui-form-label">是否是批发商品</label>
+					<label class="layui-form-label">是否上架</label>
 					<div class="layui-input-block">
 						<input type="radio" name="sfpfsp" value="nan" title="是">
 						<input type="radio" name="sfpfsp" value="nv" title="否" checked>
 					</div>
 				</div>
 				<div class="layui-form-item">
-					<label class="layui-form-label">分类</label>
+					<label class="layui-form-label">选择药品类别</label>
 	                <div class="layui-input-inline">
-	                    <select name="provid" id="provid" lay-filter="provid">
-	                        <option value="">一级分类</option>
+	                    <select name="one" id="provid" lay-filter="provid" required>
+	                        <option value="-1">选择分类</option>
+	                        <s:iterator value="findAllType" var="type">
+					        	<option value="<s:property value="#type.tid"></s:property>"><s:property value="#type.tname"></s:property></option>
+					        </s:iterator>
 	                    </select>
 	                </div>
-	                <div class="layui-input-inline">
+	                <%-- <div class="layui-input-inline">
 	                    <select name="cityid" id="cityid" lay-filter="cityid">
 	                        <option value="">二级分类</option>
+					        <option value="0">北京</option>
+					        <option value="1">上海</option>
+					        <option value="2">广州</option>
+					        <option value="3">深圳</option>
+					        <option value="4">杭州</option>
+	                    </select>
+	                </div> --%>
+				</div>
+				
+				<div class="layui-form-item">
+				  
+				  <label class="layui-form-label">供应商</label>
+				  <div class="layui-input-inline">
+	                    <select name="two" id="two">
+	                        <option value="-1">选择供应商</option>
+	                        <s:iterator value="allSuppliers" var="Suppliers">
+					        	<option value="<s:property value="#Suppliers.sid"></s:property>"><s:property value="#Suppliers.sname"></s:property></option>
+					        </s:iterator>
 	                    </select>
 	                </div>
 				</div>
-				<div class="layui-form-item">
+				
+				
+				
+				<!-- <div class="layui-form-item">
 					<label class="layui-form-label">状态</label>
 					<div class="layui-input-block">
 						<input type="radio" name="sex" value="nan" title="启用">
 						<input type="radio" name="sex" value="nv" title="禁用" checked>
 					</div>
-				</div>
+				</div> -->
 				
 				<div class="layui-form-item">
 					<div class="layui-input-block">
 						<input class="layui-btn" type="submit" value="立即提交">
-						<!-- <button class="layui-btn" lay-submit lay-filter="submitBut">立即提交</button> -->
 						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 					</div>
 				</div>
@@ -130,10 +158,8 @@
 					var upload = layui.upload;
 					var layer = layui.layer;
 					//监听提交
-					//解决了layui.open弹窗从内部关闭这个弹窗的问题
 					form.on('submit(submitBut)', function(data) {
-						var updateFrame = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
-						parent.layer.close(updateFrame);  //再改变当前层的标题
+						return false;
 					});
 					form.verify({
 						//数组的两个值分别代表：[正则匹配、匹配不符时的提示文字]
@@ -151,6 +177,28 @@
 						}
 					});
 				});
+				
+				//
+				function checkform(){
+					
+					var one = document.getElementById("provid");
+					var two = document.getElementById("two");
+					if(one.value==-1){
+						alert("请选择药品类别！");
+					}else if(two.value == -1){
+						alert("请选择供应商和药品类别！");
+					}else{
+						return true;
+					}
+					
+				
+					
+				}
+				
+				
+				
+				
+				
 			</script>
 
 		</div>

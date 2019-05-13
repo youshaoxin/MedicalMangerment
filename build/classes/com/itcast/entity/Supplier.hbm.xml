@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.itcast.entity.Supplier" table="supplier">
+		<id name="sid" column="sid">
+			<generator class="native"></generator>
+		</id>
+		<property name="sname" column="sname"></property>
+		<property name="sadress" column="sadress"></property>
+		
+		
+		
+		<!-- 配置和商品表的一对多关系 -->
+		<set name="suppliergoods" cascade="save-update,delete" lazy="false" inverse="false">
+			<key column="sid"></key>
+			<one-to-many class="com.itcast.entity.Good"/>
+		</set>
+	
+	
+	</class>
+	
+</hibernate-mapping>

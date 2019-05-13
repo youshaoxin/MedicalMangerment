@@ -22,7 +22,7 @@
 		<title>穷在闹市出品</title>
 
 		<!-- 公共样式 开始 -->
-		<link rel="stylesheet" type="text/css" href=".${pageContext.request.contextPath}/css/base.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/base.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/fonts/iconfont.css">
 		<script type="text/javascript" src="${pageContext.request.contextPath}/framework/jquery-1.11.3.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/layui/css/layui.css">
@@ -67,21 +67,19 @@
 				</thead>
 				<tbody>
 				
-				<s:iterator value="typeList" var="type">
+				<s:iterator value="findAllType" var="type">
 					<tr>
-						<td><s:property value="#type.typename"></s:property></td>
-						<td>H5</td>
+						<td><s:property value="#type.tid"></s:property></td>
+						<td><s:property value="#type.tname"></s:property></td>
 						<td>
-							<a href="${pageContext.request.contextPath}/type_delete?uname=<s:property value="#type.typename"></s:property>&&uid=<s:property value="#type.id"></s:property>">
-							<button class="layui-btn layui-btn-xs">删除</button>
-							</a>
-							
+							<button class="layui-btn layui-btn-xs">修改</button>
 							<button class="layui-btn layui-btn-xs layui-btn-normal">添加二级分类</button>
 							<button class="layui-btn layui-btn-xs layui-btn-warm">查看二级分类</button>
 						</td>
 					</tr>
 				</s:iterator>
 				
+					
 				</tbody>
 			</table>
 			

@@ -10,7 +10,7 @@
 		<property name="tname" column="tname"></property>
 		
 		<!-- 配置和商品表的一对多关系 -->
-		<set name="setgoods" inverse="true" cascade="save-update,delete">
+		<set name="setgoods" cascade="save-update,delete" lazy="false" inverse="false">
 			<key column="tid"></key>
 			<one-to-many class="com.itcast.entity.Good"/>
 		</set>

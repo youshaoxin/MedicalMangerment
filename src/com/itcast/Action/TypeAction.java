@@ -5,14 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.itcast.entity.Type;
 import com.itcast.service.TypeService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class TypeAction extends ActionSupport {
+	
+	/**
+	 * 注入typeService
+	 */
 	private TypeService typeService ;
 	
 	public TypeService getTypeService() {
@@ -23,6 +29,8 @@ public class TypeAction extends ActionSupport {
 		this.typeService = typeService;
 	}
 
+	
+	
 	private List<Type> typeList = new ArrayList<Type>();
 	
 	public List<Type> getTypeList() {
@@ -33,34 +41,25 @@ public class TypeAction extends ActionSupport {
 		this.typeList = typeList;
 	}
 
+	
+	/**
+	 * 查找类别的方法
+	 * @return
+	 */
 	public String findAllType() {
 		
 		List<Type> findAllType = typeService.findAllType();
+		
+		
+		ActionContext.getContext().getValueStack().set("findAllType", findAllType);
 		System.out.println("查找所有类别方法。。。。。");
 		for (Type type : findAllType) {
 			System.out.println(type.getTid()+":"+type.getTname());
 		}
 		
-		for (Type type : findAllType) {
-			typeList.add(type);
-		}
 		
 		return "findAllType";
 	}
-	
-	
-	
-	
-	private String one;
-
-	public String getOne() {
-		return one;
-	}
-
-	public void setOne(String one) {
-		this.one = one;
-	}
-	
 	
 
 	
@@ -91,12 +90,26 @@ public class TypeAction extends ActionSupport {
 		return "delete";
 	}
 	
-	
+
 	/**
-	 * 
+	 * 商品列表显示类别
 	 */
-	
-	
+	public String findIndexTypes() {
+		
+		System.out.println("啊！！！");
+		List<Type> findAllType = typeService.findAllType();
+		
+		ActionContext.getContext().getValueStack().set("findAllType", findAllType);
+
+		for (Type type : findAllType) {
+			System.out.println(type.getTid()+":"+type.getTname());
+		}
+		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.setAttribute("findAllType", "findAllType");
+		
+		return "findIndexTypes";
+	}
 	
 	
 	
