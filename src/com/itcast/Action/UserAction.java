@@ -113,10 +113,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	public String login() {
 		User userlogin=userService.login(user);
 		if(userlogin==null) {
-			System.out.println("登录失败");
-		}
-		ServletActionContext.getRequest().getSession().setAttribute("userlogin", userlogin);
-		System.out.println(userlogin);
+			
+		}else {
+			ServletActionContext.getRequest().getSession().setAttribute("userlogin", userlogin);
+			System.out.println(userlogin);}
+		
 		return "loginSuccess";
 	}
 }
