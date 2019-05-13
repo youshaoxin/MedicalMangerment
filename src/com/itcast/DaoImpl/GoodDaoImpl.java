@@ -13,7 +13,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.itcast.Dao.GoodDao;
 import com.itcast.entity.Good;
-import com.itcast.entity.Supplier;
 import com.itcast.entity.Type;
 import com.itcast.service.GoodService;
 
@@ -36,7 +35,7 @@ public class GoodDaoImpl implements GoodDao {
 		
 		System.out.println("查找所有药品列表....");
 		
-		List<Good> goodlist = (List<Good>) hibernateTemplate.find("from Good c inner join fetch c.sid");
+		List<Good> goodlist = (List<Good>) hibernateTemplate.find("from Good");
 		
 		for (Good good : goodlist) {
 		
@@ -47,37 +46,24 @@ public class GoodDaoImpl implements GoodDao {
 		
 		return goodlist;
 	}
-	
-	
-	
 	/**
 	 * 增加药品
 	 */
 	@Override
-	public void goodsAdd(Good good,Type type,Supplier supplier) {
+	public void goodsAdd(Good good) {
 
 		System.out.println("添加impl...");
-		
-		hibernateTemplate.saveOrUpdate(type);
-		hibernateTemplate.saveOrUpdate(supplier);
-		hibernateTemplate.saveOrUpdate(good);
-		
+		hibernateTemplate.save(good);
 		
 	}
 	/**
 	 * 更新药品信息
 	 */
 	@Override
-	public void updateGoods(Integer id,Integer tid,Integer sid) {
-		//查询出要修改的药品
-		Good good2 = hibernateTemplate.get(Good.class, id);
-		Type goodstype = hibernateTemplate.get(Type.class, tid);
-		Supplier goodssupplier = hibernateTemplate.get(Supplier.class, sid);
+	public void updateGoods(Good good) {
 		
-		goodstype.getSetgoods().add(good2);
-		goodssupplier.getSuppliergoods().add(good2);
-		
-		
+	
+		hibernateTemplate.update(good);
 		System.out.println("更新药品信息impl。。。");
 
 		
@@ -88,13 +74,14 @@ public class GoodDaoImpl implements GoodDao {
 	@Override
 	public void deleteGoods(Integer gid) {
 		
-		Good good = hibernateTemplate.get(Good.class, gid);
-		hibernateTemplate.delete(good);
-		System.out.println("删除成功！");
+		List<Good> good = (List<Good>) hibernateTemplate.find("from Good where gid=?", gid);
+		for (Good good2 : good) {
+			hibernateTemplate.delete(good2);
+			System.out.println("删除成功！");
+		}
+		
 	}
 
-	
-	
 	/**
 	 * 模糊查找商品
 	 * @return
@@ -110,6 +97,15 @@ public class GoodDaoImpl implements GoodDao {
 		}
 		
 		return findgoods;
+	}
+
+	/**
+	 * 根据id查询商品（ypf+）
+	 */
+	@Override
+	public Good findById(Integer gid) {
+		Good good=hibernateTemplate.get(Good.class, gid);
+		return good;
 	}
 
 }
