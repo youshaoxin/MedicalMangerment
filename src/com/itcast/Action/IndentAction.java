@@ -102,15 +102,16 @@ public class IndentAction extends ActionSupport implements ModelDriven<Indent>{
 		//统计页面上的值
 		Shop shop = (Shop) ServletActionContext.getRequest().getSession().getAttribute("shop");
 		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("userlogin");
-		if(user!=null) {
+		if(user==null) {
+			User user667 = userService.finById(667);
+			System.out.println(user667);
+			indent.setUser(user667);
+		}else {
 			indent.setUser(user);
 		}
-		else {
-			User user666 =new User();
-			user666.setUid(666);
-			indent.setUser(user666);
-		}
+		
 		Double total = shop.getTotal();
+		
 		
 		
 		indent.setIndentid(indentId);
