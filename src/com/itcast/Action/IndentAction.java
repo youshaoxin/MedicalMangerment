@@ -103,10 +103,9 @@ public class IndentAction extends ActionSupport implements ModelDriven<Indent>{
 		Shop shop = (Shop) ServletActionContext.getRequest().getSession().getAttribute("shop");
 		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("userlogin");
 		if(user==null) {
-			User user666=new User();
-			user666.setUsername("非会员");
-			user666.setPhone("无");
-			indent.setUser(user666);
+			User user667 = userService.finById(667);
+			System.out.println(user667);
+			indent.setUser(user667);
 		}else {
 			indent.setUser(user);
 		}
