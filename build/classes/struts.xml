@@ -108,15 +108,24 @@
 	        <!-- 根据订单编号 加入到库存    然后在  进行查询仓库  -->
 	        <result name="increasedate" type="redirectAction">repertory_repertoryall2</result> 
 	        <!-- 根据时间模糊查询 -->
-	        <result name="mohuselect"></result>
-	        
-	        
-	        
+	        <result name="mohuselect">/tgls/into_out/mohulist.jsp</result>
+	           
 	      	<result name="privilege">/tgls/user/maintain.jsp</result>     
 	        <interceptor-ref name="privilegeInterceptor"></interceptor-ref>
 	        <interceptor-ref name="defaultStack"></interceptor-ref> 
         </action>
+		<!-- 出库管理 Outrepertory_outrepertory-->
 		
+		<action name="Outrepertory_*" class="outrepertoryaction" method="{1}">
+	       
+	        <result name="outrepertory">/tgls/into_out/outnumber.jsp</result>
+	         <result name="outrepertoryfalse">/tgls/into_out/outData.jsp</result>
+	         
+	         <result name="insertoutrepertory">/test.jsp</result>
+	         
+	         <result name="outRepertoryquery">/tgls/into_out/outRepertoryquery.jsp</result>
+	        
+        </action>
 		<!-- ======================================================================================================-->		
 		<!-- 店员及店长登录action -->
 		
@@ -127,9 +136,7 @@
 	   		<result name="loginOut" >/login.jsp</result>
         </action>
 		
-		
 	</package>
-	
-	
+
 	
 </struts>

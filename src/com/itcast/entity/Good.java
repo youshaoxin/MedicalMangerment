@@ -16,20 +16,17 @@ public class Good {
 	
 	private Type type;//类别id
 	private String overTime;//距离过期时间
-	private Repertory repertory;
-	
-	
-	//配置与仓库的一对多关系
-	//private Repertory repertory=new Repertory();
-	
-	
-	public Repertory getRepertory() {
-		return repertory;
-	}
-
-	public void setRepertory(Repertory repertory) {
-		this.repertory = repertory;
-	}
+	/*
+	 * private Repertory repertory;
+	 * 
+	 * 
+	 * //配置与仓库的一对多关系 //private Repertory repertory=new Repertory();
+	 * 
+	 * 
+	 * public Repertory getRepertory() { return repertory; }
+	 * 
+	 * public void setRepertory(Repertory repertory) { this.repertory = repertory; }
+	 */
 
 	
 

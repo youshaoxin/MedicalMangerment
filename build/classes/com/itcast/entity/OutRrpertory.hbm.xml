@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- private Integer outid; // 上架编号 private String outnumber;// 上架订单编号 private 
+	String outname;// 上架产品 private String outdate; // 上架时间 private String outprice;// 
+	上架单价 private String outfactory;//厂家 private String outtext;// 备注 private 
+	String outbrithdate; // 生产日期 private String outnum;// 上架数量 -->
+<hibernate-mapping>
+	<class name="com.itcast.entity.OutRepertory" table="outrepertory">
+		<id name="outid" column="outid">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="outnumber" column="outnumber"></property>
+		<property name="outname" column="outname"></property>
+		<property name="outdate" column="outdate"></property>
+		<property name="outprice" column="outprice"></property>
+		<property name="outfactory" column="outfactory"></property>
+		<property name="outtext" column="outtext"></property>
+		<property name="outbrithdate" column="outbrithdate"></property>
+		<property name="outnum" column="outnum"></property>
+
+	</class>
+
+
+
+
+</hibernate-mapping>

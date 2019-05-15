@@ -5,46 +5,39 @@
 <hibernate-configuration>
 	<session-factory>
 		<!-- 第一部分： 配置数据库信息 必须的 -->
-		<!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql:///medical</property>
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">root</property>
-		<property name="connection.useUnicode">true</property>
-        <property name="connection.characterEncoding">UTF-8</property> -->
-        
+		<!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> 
+			<property name="hibernate.connection.url">jdbc:mysql:///medical</property> 
+			<property name="hibernate.connection.username">root</property> <property 
+			name="hibernate.connection.password">root</property> <property name="connection.useUnicode">true</property> 
+			<property name="connection.characterEncoding">UTF-8</property> -->
+
 		<property name="connectio.useUnicode">true</property>
 		<property name="connection.characterEncoding">UTF-8</property>
-		<!-- 第二部分： 配置hibernate信息  可选的-->
+		<!-- 第二部分： 配置hibernate信息 可选的 -->
 		<!-- 输出底层sql语句 -->
 		<property name="hibernate.show_sql">true</property>
 		<!-- 输出底层sql语句格式 -->
 		<property name="hibernate.format_sql">true</property>
-		<!-- hibernate帮创建表，需要配置之后 
-			update: 如果已经有表，更新，如果没有，创建
-		-->
+		<!-- hibernate帮创建表，需要配置之后 update: 如果已经有表，更新，如果没有，创建 -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
-		<!-- 配置数据库方言
-			在mysql里面实现分页 关键字 limit，只能使用mysql里面
-			在oracle数据库，实现分页rownum
-			让hibernate框架识别不同数据库的自己特有的语句
-		 -->
+		<!-- 配置数据库方言 在mysql里面实现分页 关键字 limit，只能使用mysql里面 在oracle数据库，实现分页rownum 让hibernate框架识别不同数据库的自己特有的语句 -->
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-		
-		<!-- 第三部分： 把映射文件放到核心配置文件中 必须的-->
-		<mapping resource="com/itcast/entity/User.hbm.xml"/>
-		<mapping resource="com/itcast/entity/Good.hbm.xml"/>
-		<mapping resource="com/itcast/entity/Type.hbm.xml"/>
-		<mapping resource="com/itcast/entity/Stock.hbm.xml"/>
-		<mapping resource="com/itcast/entity/Supplier.hbm.xml"/>
-		<mapping resource="com/itcast/entity/Indent.hbm.xml"/>
-		<mapping resource="com/itcast/entity/IndentDetail.hbm.xml"/>
-		<mapping resource="com/itcast/entity/Repertory.hbm.xml"/>
-		<mapping resource="com/itcast/entity/OrderDetail.hbm.xml"/>
+
+
+		<!-- 第三部分： 把映射文件放到核心配置文件中 必须的 -->
+		<mapping resource="com/itcast/entity/User.hbm.xml" />
+		<mapping resource="com/itcast/entity/Good.hbm.xml" />
+		<mapping resource="com/itcast/entity/Type.hbm.xml" />
+		<mapping resource="com/itcast/entity/Stock.hbm.xml" />
+		<mapping resource="com/itcast/entity/Supplier.hbm.xml" />
+		<mapping resource="com/itcast/entity/Indent.hbm.xml" />
+		<mapping resource="com/itcast/entity/IndentDetail.hbm.xml" />
+		<mapping resource="com/itcast/entity/Repertory.hbm.xml" />
+		<mapping resource="com/itcast/entity/OrderDetail.hbm.xml" />
+		<mapping resource="com/itcast/entity/OutRrpertory.hbm.xml" />
 		<mapping resource="com/itcast/entity/Clerk.hbm.xml"/>
 		<mapping resource="com/itcast/entity/Admin.hbm.xml"/>
-		
-		
-		
+	
 	</session-factory>
 </hibernate-configuration>
 

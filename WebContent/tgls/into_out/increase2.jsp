@@ -53,6 +53,7 @@
 <!-- 产品名字 -->		<input type="hidden" name="rproduct"  value="<s:property value="#orderdetial.orName"/>" required lay-verify="required" autocomplete="off" class="layui-input">
 <!--  数量-->			<input type="hidden" name="rtotal"  value="<s:property value="#orderdetial.ornum"/>" required lay-verify="required" autocomplete="off" class="layui-input">
 <!-- orUnitPrice -->	<input type="hidden" name="runit"  value="<s:property value="#orderdetial.orUnitPrice"/>" required lay-verify="required" autocomplete="off" class="layui-input">		
+				<input type="hidden" name="runit"  value="<s:property value="#orderdetial.orUnitPrice"/>" required lay-verify="required" autocomplete="off" class="layui-input">	
 				</s:iterator>
 				<!-- <div class="layui-form-item">
 					<label class="layui-form-label">商品图片</label>
