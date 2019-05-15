@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  <%@taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,13 +125,37 @@
 					<ul>
 						<li><a href="javascript:void(0)" onclick="menuCAClick('tgls/modify_password.html',this, 'pageNotice', '通知公告')" onmouseenter="getTips(this, '通知公告')" onmouseleave="layer.closeAll('tips')"><i class="iconfont icon-tongzhigonggao1"></i><span class="news"></span></a></li>
 						<li><a href="javascript:void(0)" id="fullScreenBut" onclick="fullScreen('fullScreenBut')" onmouseenter="getTips(this, '全屏')" onmouseleave="layer.closeAll('tips')"><i class="iconfont icon-full-screen"></i></a></li>
+						<!-- 店员和店长 -->
 						<li>
-							<a href="javascript:void(0)"><font>管理员</font><i class="iconfont icon-up-copy"></i></a>
+							<a href="javascript:void(0)"><font>
+						<s:if test="#session.clerklogin!=null">
+							您好：<s:property value="#session.clerklogin.cname"/>
+						</s:if> 
+					
+						
+						<s:elseif test="#session.adminlogin!=null">
+							管理员:<s:property value="#session.adminlogin.name"/>
+						</s:elseif> 
+						
+		
+							</font><i class="iconfont icon-up-copy"></i></a>
 							<dl>
-			                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/modify_password.html',this, 'pageUserInfo')">基本资料</a></dt>
-			                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/modify_password.html',this, 'pageModifyPassword')">修改密码</a></dt>
+							<s:if test="#session.clerklogin!=null">
+							<dt><a href="${pageContext.request.contextPath}/AdminLogin.jsp" onclick="menuCAClick('',this, 'pageModifyPassword')">管理员登录</a></dt>
+							</s:if>
+							<dt><a href="${pageContext.request.contextPath}/login_loginOut" onclick="menuCAClick('',this, 'pageUserInfo')">退出登录</a></dt>
 			                </dl>
 						</li>
+						<%-- <!-- 店员和店长 -->
+						<s:if test="#session.admin.size()!=0">
+						<li>
+							<a href="javascript:void(0)"><font><s:property value="#session.clerklogin.cname"/></font><i class="iconfont icon-up-copy"></i></a>
+							<dl>
+			                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/login_loginOut',this, 'pageUserInfo')">退出登录</a></dt>
+			                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/login_adminLogin',this, 'pageModifyPassword')">管理员登录</a></dt>
+			                </dl>
+						</li>
+						</s:if> --%>
 						<li><a href="login.html" onmouseenter="getTips(this, '退出系统')" onmouseleave="layer.closeAll('tips')"><i class="iconfont icon-084tuichu"></i></a></li>
 					</ul>
 				</div>

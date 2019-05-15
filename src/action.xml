@@ -152,6 +152,7 @@
 	</bean>
 	
 	
+
 	<!-- 出库管理 outrepertoryaction-->
 	<bean id="outrepertoryaction" class="com.itcast.Action.OutRepertoryAction" scope="prototype">
 	  <property name="outrepertoryService" ref="outrepertoryService"></property>
@@ -166,4 +167,29 @@
 	</bean> -->
 	
 	
+
+	<!-- ================================================================================================-->
+	<!-- 店员及经理的登录 Action-->
+	
+	<!--  创建Login 的action-->
+	<bean id="loginAction" class="com.itcast.Action.LoginAction" scope="prototype">
+	  <property name="clerkService" ref="clerkService"></property>
+	  <property name="adminService" ref="adminService"></property>
+	</bean>
+	
+	<!-- 店员 -->
+	<bean  id="clerkService" class="com.itcast.service.ClerkService">
+	  <property name="clerkDao" ref="clerkDaoImpl"></property>
+	</bean>
+	<bean  id="clerkDaoImpl" class="com.itcast.DaoImpl.ClerkDaoImpl">
+	  <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<!-- 经理 -->
+	<bean  id="adminService" class="com.itcast.service.AdminService">
+	  <property name="adminDao" ref="adminDaoImpl"></property>
+	</bean>
+	<bean  id="adminDaoImpl" class="com.itcast.DaoImpl.AdminDaoImpl">
+	  <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
 </beans>

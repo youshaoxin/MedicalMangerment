@@ -369,7 +369,5 @@ public class GoodAction extends ActionSupport implements ModelDriven<Good>{
 			
 		return "findAllShopGoods";
 	}
-	
-	
-	
+
 }
