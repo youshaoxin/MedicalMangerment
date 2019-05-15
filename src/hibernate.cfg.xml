@@ -40,6 +40,8 @@
 		<mapping resource="com/itcast/entity/IndentDetail.hbm.xml"/>
 		<mapping resource="com/itcast/entity/Repertory.hbm.xml"/>
 		<mapping resource="com/itcast/entity/OrderDetail.hbm.xml"/>
+		<mapping resource="com/itcast/entity/Clerk.hbm.xml"/>
+		<mapping resource="com/itcast/entity/Admin.hbm.xml"/>
 		
 		
 		

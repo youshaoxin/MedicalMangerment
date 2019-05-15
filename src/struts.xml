@@ -6,6 +6,12 @@
 	
 <struts>
 	<package name="demo1" extends="struts-default" namespace="/">
+		<!-- 拦截器 -->
+		<interceptors>
+			<interceptor name="privilegeInterceptor" class="com.itcast.Interceptor.privilegeInterceptor"></interceptor>
+		</interceptors>
+	
+	
 	<!-- class属性不写action全路径了，因为写了action会创建两次，写spring 配置的action的bean的id值-->
 	
 		<action name="userAction" class="userAction"></action>
@@ -103,9 +109,23 @@
 	        <result name="increasedate" type="redirectAction">repertory_repertoryall2</result> 
 	        <!-- 根据时间模糊查询 -->
 	        <result name="mohuselect"></result>
+	        
+	        
+	        
+	      	<result name="privilege">/tgls/user/maintain.jsp</result>     
+	        <interceptor-ref name="privilegeInterceptor"></interceptor-ref>
+	        <interceptor-ref name="defaultStack"></interceptor-ref> 
         </action>
 		
+		<!-- ======================================================================================================-->		
+		<!-- 店员及店长登录action -->
 		
+        <action name="login_*" class="loginAction" method="{1}">
+	       <!-- 登录 -->
+	   		<result name="clerklogin">/index.jsp</result>
+	   		<result name="adminlogin">/index.jsp</result>
+	   		<result name="loginOut" >/login.jsp</result>
+        </action>
 		
 		
 	</package>
