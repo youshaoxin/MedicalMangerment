@@ -10,6 +10,8 @@
     private  String  runit;//单位
     private  String  rname;//操作员
     private String rtext;//备注
+      private  String rbrithdate;  //生产日期
+    private String rput;//上架数量
     rprice
      -->
   <class name="com.itcast.entity.Repertory" table="repertory">
@@ -22,15 +24,16 @@
 		<property name="rdate" column="rdate"></property>
 		<property name="rtotal" column="rtotal"></property>
 		<property name="runit" column="runit"></property>
-      
+      <property name="rbrithdate" column="rbrithdate"></property>
+      <property name="rput" column="rput"></property>
 		<property name="rname" column="rname"></property>
 		<property name="rtext" column="rtext"></property>
 		
-		<set name="good" inverse="true" cascade="save-update,delete">
+		<!-- <set name="good" inverse="true" cascade="save-update,delete" laze="false">
 			<key column="rid"></key>
 			<one-to-many class="com.itcast.entity.Good"/>
 		</set>
-		
+		 -->
 	</class>
     
     

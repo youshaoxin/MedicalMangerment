@@ -188,7 +188,7 @@
 						<td><s:property value="#reper.rput" /></td>
 						<td><s:property value="#reper.runit" /></td>
 						<td><s:property value="#reper.rtotal" /></td>
-						<td><s:property value="#reper.rbrithdate"/></td>
+						<td></td>
 						<td><s:property value="#reper.rtext" /></td>
 						<td><s:property value="#reper.rname" /></td>
 			

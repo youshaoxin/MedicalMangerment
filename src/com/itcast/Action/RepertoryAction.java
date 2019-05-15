@@ -44,7 +44,7 @@ public class RepertoryAction extends ActionSupport implements ModelDriven<Repert
 	 * public static String getOrderdetial() { return OrderDetial; }
 	 */
 
-	private static final String OrderDetial = null;
+	
 	// 这里在action注入 service
 	private RepertoryService repertoryService;
 
@@ -60,9 +60,9 @@ public class RepertoryAction extends ActionSupport implements ModelDriven<Repert
 	public String repertoryall2() {
 
 		System.out.println("findrepertoryall_Action进....");
-		
+
 		List<Repertory> repertoryall = repertoryService.repertoryall2();
-		
+
 		System.out.println("findrepertoryall_Action出....");
 
 		ActionContext.getContext().getValueStack().set("repertoryall", repertoryall);
@@ -77,23 +77,26 @@ public class RepertoryAction extends ActionSupport implements ModelDriven<Repert
 		return "repertoryall2";
 	}
 
-//  查询 入库所有信息   和good 的级联             
-	public String findrepertoryall() {
-		System.out.println("findrepertoryall_Action进....");
-		List<Good> findrepertoryall = repertoryService.findrepertoryall();
-		System.out.println("findrepertoryall_Action出....");
-
-		ActionContext.getContext().getValueStack().set("findrepertoryall", findrepertoryall);
-
-		for (Good good : findrepertoryall) {
-			System.out.println("shang");
-			System.out.println("库存名：" + good.getGname() + good.getRepertory().getRname());
-
-		}
-
-		return "repertoryall";
-
-	}
+//  查询 入库所有信息   和good 的级联         暂时没用        
+	/*
+	 * public String findrepertoryall() {
+	 * System.out.println("findrepertoryall_Action进...."); List<Good>
+	 * findrepertoryall = repertoryService.findrepertoryall();
+	 * System.out.println("findrepertoryall_Action出....");
+	 * 
+	 * ActionContext.getContext().getValueStack().set("findrepertoryall",
+	 * findrepertoryall);
+	 * 
+	 * for (Good good : findrepertoryall) { System.out.println("shang");
+	 * System.out.println("库存名：" + good.getGname() +
+	 * good.getRepertory().getRname());
+	 * 
+	 * }
+	 * 
+	 * return "repertoryall";
+	 * 
+	 * }
+	 */
 
 	// 查询是否存在 订单编号
 	public String selectorder() {
@@ -130,7 +133,7 @@ public class RepertoryAction extends ActionSupport implements ModelDriven<Repert
 
 	}
 
-	// 商品信息入库
+	// 商品信息入库//往仓库中加入数据
 	public String increasedate() {
 
 		System.out.println("进action.............");
@@ -144,7 +147,9 @@ public class RepertoryAction extends ActionSupport implements ModelDriven<Repert
 		// 往repertory添加时间
 		repertory.setRdate(format);
 		System.out.println(repertory);
+		
 		repertoryService.increasedate2(repertory);
+		
 		System.out.println("出action.............");
 
 		return "increasedate";
@@ -156,38 +161,26 @@ public class RepertoryAction extends ActionSupport implements ModelDriven<Repert
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String begintime = request.getParameter("begintime") == null ? "" : request.getParameter("begintime");
 		String endtime = request.getParameter("endtime") == null ? "" : request.getParameter("endtime");
-		/*
-		 * SimpleDateFormat bf = new SimpleDateFormat("yyyy-MM-dd T HH:mm:ss");// 多态
-		 * SimpleDateFormat bf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 多态
-		 */		/* try { */
-			/*
-			 * Date parse = bf.parse(begintime); Date parse2 = bf.parse(endtime);
-			 */
-			/*
-			 * String begin = bf2.format(parse); String end = bf2.format(parse2);
-			 * 
-			 * System.out.println(begin); System.out.println(end);
-			 */
-			  
-			  System.out.println(begintime); 
-			  System.out.println(endtime);
-			 
-		List<Repertory>	 mohuselect=  repertoryService.mohuselectService(begintime,endtime);
-			  
 
-	/*	} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
+		String begintime2 = endtime.replaceAll("T"," ");//将时间 中产生的T给替换成 空格
+		String endtime2 = endtime.replaceAll("T"," ");//将时间 中产生的T给替换成 空格
+		
+		System.out.println(begintime);
+		System.out.println(endtime);
 
-		}*/
+		List<Repertory> mohuselect = repertoryService.mohuselectService(begintime, endtime);
 
-		// df.parse(s);String转成对象
+		ActionContext.getContext().getValueStack().set("mohuselect", mohuselect);
+		ActionContext.getContext().getValueStack().set("begintime2", begintime2);
+		ActionContext.getContext().getValueStack().set("endtime2", endtime2);
 
-		// String begin = bf.format(begintime);
-		// String end = bf.format(endtime);
+		System.out.println("Action出");
 
 		return "mohuselect";
 	}
+
+	
+	
+	
 
 }

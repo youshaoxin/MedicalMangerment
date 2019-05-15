@@ -12,18 +12,16 @@ public class Repertory {
      private String rtotal; //入库总数 
     private  String  runit;//单价
     private  String  rname;//操作员
-    private String rtext;//备注
-    
+    private String rtext;//备注 
+    private  String rbrithdate;  //生产日期
+    private String rput;//供应商
 
 	//  商品编号 ，商品名称    供应商
      //配置一对多
-    private Set<Good> good = new HashSet<Good>();
-    public Set<Good> getGood() {
-		return good;
-	}
-	public void setGood(Set<Good> good) {
-		this.good = good;
-	}
+	/*
+	 * private Set<Good> good = new HashSet<Good>(); public Set<Good> getGood() {
+	 * return good; } public void setGood(Set<Good> good) { this.good = good; }
+	 */
     
 	public Integer getRid() {
 		return rid;
@@ -41,11 +39,28 @@ public class Repertory {
 	
 	
 	
+	
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Repertory [rid=" + rid + ", rnumber=" + rnumber + ", rproduct=" + rproduct + ", rdate=" + rdate
-				+ ", rtotal=" + rtotal + ", runit=" + runit + ", rname=" + rname + ", rtext=" + rtext + ", good=" + good
-				+ "]";
+				+ ", rtotal=" + rtotal + ", runit=" + runit + ", rname=" + rname + ", rtext=" + rtext + ", rbrithdate="
+				+ rbrithdate + ", rput=" + rput +  "]";
+	}
+	public String getRbrithdate() {
+		return rbrithdate;
+	}
+	public void setRbrithdate(String rbrithdate) {
+		this.rbrithdate = rbrithdate;
+	}
+	public String getRput() {
+		return rput;
+	}
+	public void setRput(String rput) {
+		this.rput = rput;
 	}
 	public String getRnumber() {
 		return rnumber;

@@ -81,7 +81,7 @@
 		        	<li>
 		                <a class="menuFA" href="javascript:void(0)"><i class="iconfont icon-icon left" onmouseenter="getLeftTips(this, '出入库管理')" onmouseleave="layer.closeAll('tips')"></i><font>库存管理</font><i class="iconfont icon-dajiantouyou right"></i></a>
 		                <dl>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/into_out/outData.html',this, 'page10036')">库存查询</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/Outrepertory_outRepertoryquery',this, 'page10050')">库存查询</a></dt>
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/repertory_repertoryall2',this, 'page10036')">入库管理</a></dt>
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/into_out/intoData.html',this, 'page10037')">出库管理</a></dt>
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/into_out/intoData.html',this, 'page10037')">库存警报</a></dt>

@@ -26,8 +26,8 @@
 		<many-to-one name="sid" class="com.itcast.entity.Supplier" column="sid" lazy="false"></many-to-one>
 		
 		
-		<!-- 配置 和仓库的一对多关系 -->
-	    <many-to-one name="repertory" class="com.itcast.entity.Repertory" column="rid"></many-to-one>
+		<!--  配置 和仓库的一对多关系
+	    <many-to-one name="repertory" class="com.itcast.entity.Repertory" column="rid"></many-to-one> -->
 	
 	
 	</class>
